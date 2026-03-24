@@ -1,4 +1,10 @@
-from app.string_utils import reverse_string, capitalize_words, count_vowels, is_palindrome
+from app.string_utils import (
+    reverse_string,
+    capitalize_words,
+    count_vowels,
+    is_palindrome,
+    normalize_whitespace,
+)
 
 
 def test_reverse_string():
@@ -23,3 +29,9 @@ def test_is_palindrome():
     assert is_palindrome("Race Car") is True
     assert is_palindrome("hello") is False
     assert is_palindrome("A man, a plan, a canal: Panama") is True
+
+
+def test_normalize_whitespace():
+    assert normalize_whitespace("  hello   world  ") == "hello world"
+    assert normalize_whitespace("line1\n\nline2\tline3") == "line1 line2 line3"
+    assert normalize_whitespace("single") == "single"
